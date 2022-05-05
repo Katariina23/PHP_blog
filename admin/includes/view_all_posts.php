@@ -45,7 +45,7 @@ while($row = mysqli_fetch_assoc($select_posts)) {
   echo "<td>$post_tags</td>";
   echo "<td>$post_comment_count</td>";
   echo "<td>$post_date</td>";
-
+  echo "<td><a href='posts.php?delete={$post_id}'>Kustuta</a></td>";
   
   echo "/<tr>";
    
@@ -57,16 +57,24 @@ while($row = mysqli_fetch_assoc($select_posts)) {
     ?>
 
                
-                       <td>10</td>
-                       <td>Riina</td>
-                       <td>Imetore teisipäev</td>
-                       <td>Bootstrap</td>
-                       <td>staatus</td>
-                       <td>pilt</td>
-                       <td>võtmesõnad</td>
-                       <td>kommentaarid</td>
-                       <td>kuupäev</td>
-               
+                     
                </tbody>
                      
                </table>
+
+
+<?php
+               
+if(isset($_GET['delete'])){
+
+  $the_post_id = $_GET['delete'];
+
+  $query = "DELETE FROM posts WHERE post_id = {$the_post_id}";
+  $delete_query = mysqli_query($connection, $query);
+ 
+  header("Location: posts.php");
+
+   }            
+               
+               
+ ?>

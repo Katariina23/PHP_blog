@@ -45,7 +45,7 @@
                                 <a href="./posts.php">Kõik postitused</a>
                             </li>
                             <li>
-                                <a href="#">Lisa postitus</a>
+                                <a href="posts.php?source=add_post">Lisa postitus</a>
                             </li>
                         </ul>
                     </li>
